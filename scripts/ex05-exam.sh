@@ -64,25 +64,24 @@ while read file_in_line; do
     continue
   fi
 
-  file_size= $(wc -c < "$file_in_line")
+  file_size=$(wc -c <"$file_in_line")
   if [ "$file_size" -lt "$n1" ]; then
     echo "Removed $file_in_line"
     rm -f "$file_in_line"
     continue
-  elif [ "$file_size" -ge "$n1" ] || [ "$file_size" -le "$n2" ]; then
+  elif [ "$file_size" -ge "$n1" ] && [ "$file_size" -le "$n2" ]; then
     echo "Ignored"
     continue
   else
     touch "$file_in_line.compressed"
     i=1
-    for word in $(cat $file_in_line); do
-      let "i--"
+    for word in $(cat "$file_in_line"); do
+      ((i--))
       if [ $i -eq 0 ]; then
-        echo $word >> $file_in_line".compressed"
-        i=$4
+        echo "$word" >>"$file_in_line.compressed"
+        i=$n3
       fi
     done
-  
-
+  fi
 
 done <"$fn"
