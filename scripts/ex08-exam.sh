@@ -12,7 +12,7 @@
 
 fn=$1
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
   echo "ERROR wrong number of arguments run as $0 <file_name>"
   exit 1
 fi
@@ -31,8 +31,8 @@ while read line; do
       wsize=$(echo -n "$word" | wc -c)
       tot=$((tot + wsize))
     fi
-    j=$((j++))
+    j=$((j + 1))
   done
   j=$((0))
-  i=$((i++))
+  i=$((i + 1))
 done <"$fn"
