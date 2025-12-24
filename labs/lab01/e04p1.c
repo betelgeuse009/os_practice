@@ -11,15 +11,32 @@
 int main(int argc, char **argv) {
   FILE *fs, *fd;
   char c;
-  char name[1024];
+  // char name[1024];
+
+  if (argc != 3) {
+    printf("Usage ./ex04p1 <f1> <f2>");
+    return 1;
+  }
+
   fs = fopen(argv[1], "r");
-  fd = fopen(argv[2], "r");
+  if (!fs) {
+    printf("Error fs can't be opened");
+    return 1;
+  }
+
+  fd = fopen(argv[2], "w");
+  if (!fd) {
+    printf("Error fd can't be opened");
+    return 1;
+  }
 
   // sol1
-  sprintf(name, "%s.1", argv[2]);
-  while (fscanf(fs, "%c", &c)) {
+  while (fscanf(fs, "%c", &c) != EOF) {
     fprintf(fd, "%c", c);
   }
+  // while ((c = fgetc(fs)) != EOF) {
+  //   fputc(c, fd);
+  // }
   fclose(fd);
   fclose(fs);
   return 0;
