@@ -1,0 +1,9 @@
+total 80
+drwxr-xr-x 2 matteo staff 64 May 24 15:54 1bab.txt
+-r--r---wx 1 matteo staff 0 May 24 15:39 678bxb.txt
+-rw-rw--wx 1 matteo staff 0 May 24 15:40 678bxb543.txt
+-rwxr-xr-x 1 matteo staff 33784 May 24 18:45 a.out
+-rw-r--r-- 1 matteo staff 0 May 24 15:39 bab.txt
+-rw-r--r-- 1 matteo staff 839 May 24 18:45 x.c
+-rw-r--r-- 1 matteo staff 0 May 24 15:40 x.txt
+drwxr-xr-x 2 matteo staff 64 May 24 15:40 y.txt

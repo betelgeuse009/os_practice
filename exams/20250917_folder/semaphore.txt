@@ -1,0 +1,46 @@
+init(s1,1)
+init(s2,0) , init(s3,0), init(s4,0), init(s,0)
+int n=0;
+
+//P1
+while(1){
+    wait(s1);
+    printf("P1\n");
+    signal(s2);
+    signal(s3);
+  }
+
+//P2
+while(1){
+  wait(s2);
+  printf("P2\n");
+  signal(s4)
+  }
+
+//P3
+while(1){
+  wait(s3);
+  n++;
+  if(n==1){
+      signal(s3);
+    }
+  else{
+    n=0
+      signal(s);
+      signal(s);
+
+    }
+    wait(s);
+    printf("P3\n");
+    signal(s4)
+}
+
+
+//P4
+while(1){
+  for(int i; i<4; i++){
+      wait(s4);
+    }
+    printf("P4\n");
+    signal(s1);
+  }
